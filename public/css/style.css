@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'arial', Courier, monospace;
+    color: black;
+    text-align: center;
+    color: black;
+    font-size: 1.1rem;
+}
+h2{
+    font-size: 0.9rem;
+}
+p{text-align: center;}
+
+nav{
+    background-color: #AA336A;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+nav h3, .nav-brand{
+    color: floralwhite;
+    margin-left: 30px;
+    font-family: "monotype corsiva";
+
+}
+.nav-brand{
+    font-size: 1.2rem;
+}
+.nav-menu{
+    display: flex;
+    gap: 40px;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+    padding-top: 10px;
+    
+}
+.nav-menu a{
+ text-decoration: none;
+ margin-right: 40px;
+ color: pink;
+
+}
+.nav-menu a:hover,
+.nav-menu a:focus{
+    border-bottom: 2px solid pink;
+    font-weight: 700;
+   
+   }
+   .search{
+    border: 2px solid black;
+   }
+   .cart-icon {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.cart-count {
+    position: absolute;
+    top: 5px;
+    right: 31px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    min-width: 20px;
+    text-align: center;
+}
+   /* Cart sidebar styles */
+#mySidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: orange;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border: 2px solid black;
+}
+
+#mySidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#mySidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    background-color: coral;
+}
+#mySidebar label{
+    color: black;
+}
+#mySidebar input{
+    border: 1px solid black;
+}
+
+#mySidebar a:hover {
+    color: #0645AD;
+}
+.cart-item {
+    margin-bottom: 10px;
+}
+
+.quantity-input {
+    width: 50px;
+    margin: 0 10px;
+    
+}
+
+
+.total-input {
+    width: 80px;
+    margin-left: 10px;
+}
+
+#checkoutButton {
+    margin: 10px;
+    width: calc(100% - 20px);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.container-form{
+    border-radius: 5%;
+    padding: 30px 0;
+    width: 400px;
+    margin: 30px auto;
+    text-align: left;
+    background-color: purple;
+}
+.container-form h2{
+    margin: 20px 0;
+}
+label{
+    color: white;
+}
+input,label,p{
+    width: 80%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+input{
+    border: 1px solid cyan;
+    font-weight: 700;
+    font-size: 15px;
+}
+#submit{
+    cursor: pointer;
+    width: 50%;
+    height: 35px;
+    margin-top: 20px;
+    background-color: maroon;
+    color: white;
+    margin-bottom: 30px;
+}
+.container-form a{
+    margin-bottom: 30px;
+    color: orange;
+}
+
+#checkoutForm label,input{
+    color: black;
+    font-weight: 700;
+}
+#checkoutForm input{
+    border: 2px solid black;
+}
+#checkoutForm h2{
+    font-size: 1.2rem;
+    font-weight: 700;
+}

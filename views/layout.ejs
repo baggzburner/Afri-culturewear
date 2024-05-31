@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("navbar") %>
+     <!-- Cart sidebar -->
+     <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a>
+        <div id="cartItems"></div>
+        <input type="text" name="" id="overallTotal">
+        <button id="checkoutButton" class="btn btn-primary">Checkout</button> <!-- Add this line -->
+    </div>
+    <%- body %>
+    <%- include("footer") %>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
