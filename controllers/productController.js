@@ -110,3 +110,16 @@ exports.searchProducts = (req, res) => {
         });
     });
 };
+
+exports.getProductDetails = (req, res) => {
+    const productId = req.params.id;
+    const sql = "SELECT * FROM products WHERE id = ?";
+    db.query(sql, [productId], (err, results) => {
+        if (err) throw err;
+        if (results.length > 0) {
+            res.render('product_details', { product: results[0] });
+        } else {
+            res.status(404).send('Product not found');
+        }
+    });
+};

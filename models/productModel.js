@@ -11,4 +11,9 @@ const Product = {
     }
 };
 
+exports.getProductById = (id, callback) => {
+    const sql = "SELECT * FROM products WHERE id = ?";
+    db.query(sql, [id], callback);
+};
+
 module.exports = Product;

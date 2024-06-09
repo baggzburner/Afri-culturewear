@@ -10,5 +10,8 @@ router.post('/add',productController.addProduct);
 // Search route
 router.get('/search', productController.searchProducts);
 
+// Product details route
+router.get('/product/:id', productController.getProductDetails);
+
 
 module.exports = router;

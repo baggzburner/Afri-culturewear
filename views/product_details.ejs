@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="product-details">
+        <img src="<%= product.image_path %>" alt="<%= product.name %>" class="product-image">
+        <h1><%= product.name %></h1>
+        <p><%= product.description %></p>
+        <p>Price: $<%= product.price %></p>
+        <form id="addToCartForm">
+            <input type="hidden" name="productId" value="<%= product.id %>">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button type="button" id="addToCartButton" class="btn btn-primary">Add to Cart</button>
+        </form>
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()">×</a>
+        <h2>Cart</h2>
+        <div id="cartItems"></div>
+        <div class="total">
+            <label for="overallTotal">Overall Total:</label>
+            <input type="text" id="overallTotal" readonly>
+        </div>
+        <button id="checkoutButton" class="btn btn-success">Checkout</button>
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openCart()">☰ Open Cart</button>  
+    </div>
+</div>

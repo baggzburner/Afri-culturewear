@@ -7,24 +7,23 @@
 <div class="container">
     <div class="row g-5">
         <% products.forEach((product, index) => { %>
-            <% if (index % 4 === 0) { %> <!-- Start a new row for every 3 products -->
+            <% if (index % 4 === 0) { %> <!-- Start a new row for every 4 products -->
                 </div><div class="row g-5 my-5">
             <% } %>
-            <div class="col-md-3">
-                <div class="card">
+            <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-12">
+                <div class="card mb-3">
                     <div class="card-image">
                         <img src="<%= product.image_path %>" alt="<%= product.name %>" width="140" height="140">
                     </div>
                     <div class="card-body">
-                        <div class="card-title">
+                        <div class="card-title text-center">
                             <h2 id="productName<%= index %>"><%= product.name %></h2>
                         </div>
                         <div class="card-text">
-                            <p id="productPrice<%= index %>">$<%= product.price %></p>
-                            <!-- Include quantity input -->
+                            <p class="text-center pl-4" id="productPrice<%= index %>">$<%= product.price %></p>
                             <input type="number" class="form-control d-none" placeholder="Quantity" id="quantity<%= index %>" min="1" value="1">
-                            <!-- Use unique ID for purchase button -->
-                            <button class="btn btn-success float-end purchase-button" id="purchaseButton<%= index %>" data-index="<%= index %>">Purchase</button>
+                            <a href="/product/<%= product.id %>" class="btn btn-danger float-left details-button w-40" id="detailsButton<%= index %>" data-index="<%= index %>">Details</a>
+                            <button class="btn btn-primary float-right purchase-button w-40" id="purchaseButton<%= index %>" data-index="<%= index %>">Add to Cart</button>
                         </div>
                     </div>
                 </div>
