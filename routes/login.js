@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const db = require("../models/connection");
+const { isValidEmail } = require("./validation");
 
 const router = express.Router();
 
@@ -11,6 +12,11 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
     
+    if (!isValidEmail(email)) {
+        res.status(400).send("Invalid email format");
+        return;
+    }
+
     const sql = "SELECT * FROM users WHERE email = ?";
     db.query(sql, [email], async (error, results) => {
         if (error) {

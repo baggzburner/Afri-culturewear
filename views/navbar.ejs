@@ -1,8 +1,9 @@
 <nav>
     <h3><a href="/" class="nav-brand">Afri~culturewear</a></h3>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
     <ul class="nav-menu">
+        <li class="close-icon" onclick="toggleMenu()">✖</li>
         <li><a href="/">Home</a></li>
-        <li><a href="/">Categories</a></li>
         <li><a href="/">About</a></li>
         <li><a href="/">Contacts</a></li>
         <% if (user) { %>
@@ -12,8 +13,10 @@
             <li><a href="/register">Register</a></li>
         <% } %>
         <li>
-            <a href="#" class="cart-icon" onclick="openCart()">🛒</a>
-            <span id="cart-count" class="cart-count">0</span> <!-- Cart count -->
+            <div class="cart-container" onclick="openCart()">
+                <a href="#" class="cart-icon">🛒</a>
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
         </li>
     </ul>
 </nav>

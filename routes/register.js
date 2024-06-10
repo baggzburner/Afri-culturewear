@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const db = require("../models/connection"); // Import the database connection
+const db = require("../models/connection");
+const { isValidEmail, isValidPassword } = require("./validation");
 
 const router = express.Router();
 
@@ -10,6 +11,16 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
     const { firstname, lastname, email, password } = req.body;
+
+    if (!isValidEmail(email)) {
+        res.status(400).send("Invalid email format");
+        return;
+    }
+
+    if (!isValidPassword(password)) {
+        res.status(400).send("Password must be at least 8 characters long and alphanumeric");
+        return;
+    }
 
     try {
         // Hash the password

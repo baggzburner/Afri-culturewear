@@ -1,7 +1,7 @@
 const Product = require('../models/productModel');
 const path = require('path');
 const multer = require('multer');
-const db = require("../models/connection")
+const db = require("../models/connection");
 
 // Set Storage Engine
 const storage = multer.diskStorage({
@@ -70,7 +70,6 @@ exports.showAddProductForm = (req, res) => {
         // Redirect to the login page if the user is not authenticated
         res.redirect("/login");
     }
-     
 };
 
 exports.addProduct = (req, res) => {
@@ -122,4 +121,36 @@ exports.getProductDetails = (req, res) => {
             res.status(404).send('Product not found');
         }
     });
+};
+
+exports.deleteProduct = (req, res) => {
+    if (req.session && req.session.userId) {
+        // Check if the user is an admin
+        const userId = req.session.userId;
+        const sql = "SELECT role FROM users WHERE id = ?";
+        db.query(sql, [userId], (error, results) => {
+            if (error) {
+                console.log("Error fetching user role:", error);
+                res.status(500).send("Error retrieving user role");
+                return;
+            }
+            
+            const userRole = results[0].role;
+            
+            if (userRole === 'admin') {
+                const productId = req.params.id;
+                Product.deleteProduct(productId, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                        return res.status(500).send('Error deleting product');
+                    }
+                    res.redirect('/');
+                });
+            } else {
+                res.status(403).send("You do not have permission to delete this product");
+            }
+        });
+    } else {
+        res.redirect("/login");
+    }
 };

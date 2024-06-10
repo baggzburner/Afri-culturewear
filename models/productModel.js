@@ -8,6 +8,10 @@ const Product = {
     addProduct: (product, callback) => {
         let sql = 'INSERT INTO products (name, description, price, image_path) VALUES (?, ?, ?, ?)';
         db.query(sql, [product.name, product.description, product.price, product.image_path], callback);
+    },
+    deleteProduct: (id, callback) => {
+        let sql = 'DELETE FROM products WHERE id = ?';
+        db.query(sql, [id], callback);
     }
 };
 

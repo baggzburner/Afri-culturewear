@@ -1,9 +1,9 @@
 <div class="container">
     <div class="product-details">
         <img src="<%= product.image_path %>" alt="<%= product.name %>" class="product-image">
-        <h1><%= product.name %></h1>
-        <p><%= product.description %></p>
-        <p>Price: $<%= product.price %></p>
+        <h1 class="text-center"><%= product.name %></h1>
+        <p class="text-center mx-auto"><%= product.description %></p>
+        <p class="text-center mx-auto">Price: $<%= product.price %></p>
         <form id="addToCartForm">
             <input type="hidden" name="productId" value="<%= product.id %>">
             <label for="quantity">Quantity:</label>
@@ -22,6 +22,6 @@
         <button id="checkoutButton" class="btn btn-success">Checkout</button>
     </div>
     <div id="main">
-        <button class="openbtn" onclick="openCart()">☰ Open Cart</button>  
+        <button class="openbtn my-5" onclick="openCart()">☰ Open Cart</button>  
     </div>
 </div>
