@@ -123,16 +123,17 @@ exports.getProductDetails = (req, res) => {
     });
 };
 
+
+
+
 exports.deleteProduct = (req, res) => {
     if (req.session && req.session.userId) {
-        // Check if the user is an admin
         const userId = req.session.userId;
         const sql = "SELECT role FROM users WHERE id = ?";
         db.query(sql, [userId], (error, results) => {
             if (error) {
                 console.log("Error fetching user role:", error);
-                res.status(500).send("Error retrieving user role");
-                return;
+                return res.status(500).send("Error retrieving user role");
             }
             
             const userRole = results[0].role;

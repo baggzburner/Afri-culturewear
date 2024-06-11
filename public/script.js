@@ -196,24 +196,27 @@ function displayOrderSummary() {
 
         const nameSpan = document.createElement('span');
         nameSpan.textContent = item.name;
+        nameSpan.style.color = 'black';
         li.appendChild(nameSpan);
 
         const priceSpan = document.createElement('span');
         priceSpan.textContent = `$${item.price.toFixed(2)}`;
+        priceSpan.style.color = 'black';
         li.appendChild(priceSpan);
 
         const quantitySpan = document.createElement('span');
         quantitySpan.textContent = `Quantity: ${item.quantity}`;
+        quantitySpan.style.color = 'black';
         li.appendChild(quantitySpan);
 
         const totalSpan = document.createElement('span');
         totalSpan.textContent = `Total: $${(item.price * item.quantity).toFixed(2)}`;
+        totalSpan.style.color = 'black';
         li.appendChild(totalSpan);
 
         ul.appendChild(li);
-    });
-
-    orderSummaryContainer.appendChild(ul);
+    });   
+     orderSummaryContainer.appendChild(ul);
 
     const overallTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
     const overallTotalElement = document.getElementById('overallTotalInput');

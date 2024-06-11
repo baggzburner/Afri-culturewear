@@ -9,6 +9,8 @@ const ensureAuthenticated = require('./middleware/middleWare');
 const session = require('express-session');
 const expressLayouts = require("express-ejs-layouts");
 const checkoutRoutes = require("./routes/checkout");
+const aboutRoutes = require("./routes/about")
+const contactRoutes = require("./routes/contacts")
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -49,7 +51,10 @@ app.use(expressLayouts);
 app.use('/', regRoute);
 app.use('/', logRoute);
 app.use('/', productRoutes);
+app.use('/',aboutRoutes)
+app.use('/',contactRoutes)
 app.use("/", ensureAuthenticated, checkoutRoutes);
+
 
 // Apply ensureAuthenticated middleware only to routes that require authentication
 app.use('/', ensureAuthenticated, indexRoute);

@@ -1,7 +1,9 @@
+<!-- add_product.ejs -->
+
 <div class="product-div w-50 mx-auto">
     <h1 class="mt-5">Add Product</h1>
     <% if (msg) { %>
-    <p><%= msg %></p>
+        <p><%= msg %></p>
     <% } %>
     <form action="/add" method="post" enctype="multipart/form-data">
         <label for="name">Product Name:</label><br>
@@ -14,4 +16,6 @@
         <input type="file" id="image" name="image"><br><br>
         <input type="submit" value="Add Product" class="w-25 mb-5 py-2">
     </form>
+
+    
 </div>
