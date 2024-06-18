@@ -19,6 +19,10 @@ body{
 label{
     font-weight: bold;
 }
+.contacts input, #message{
+    border: 2px solid black;
+}
+
 h2{
     font-size: 1.2rem;
 }
@@ -373,8 +377,16 @@ footer .col-md-4{
     font-size: 12px;
     
 }
-.about{
+.about p{
     text-align: center;
+    margin: 0 auto;
+   
+}
+.message{
+    height: 70vh;
+    padding-top: 50px;
+}
+.contacts p{
     margin: 0 auto;
 }
 
